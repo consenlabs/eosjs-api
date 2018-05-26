@@ -1,5 +1,5 @@
 const apiGen = require('./apigen')
-const isBrowser = require('is-browser')
+const isBrowser = false
 
 module.exports = Testnet
 
@@ -11,12 +11,12 @@ Testnet.api = require('./api/v1')
 const protocol = isBrowser &&
   location.protocol === 'http:' ? 'http' : 'https'
 
-const configDefaults = {httpEndpoint: `${protocol}://t1readonly.eos.io`}
+const configDefaults = { httpEndpoint: `${protocol}://t1readonly.eos.io` }
 
 /**
   @arg {object} config
 */
-function Testnet (config) {
+function Testnet(config) {
   config = Object.assign({}, configDefaults, config)
   return apiGen(API_VERSION, Testnet.api, config)
 }
