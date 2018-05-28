@@ -1,5 +1,4 @@
 const apiGen = require('./apigen')
-const isBrowser = false
 
 module.exports = Testnet
 
@@ -8,8 +7,7 @@ const API_VERSION = 'v1'
 Testnet.api = require('./api/v1')
 
 // Always use SSL unless a browser protocol is 'http'
-const protocol = isBrowser &&
-  location.protocol === 'http:' ? 'http' : 'https'
+const protocol = 'https'
 
 const configDefaults = { httpEndpoint: `${protocol}://t1readonly.eos.io` }
 
